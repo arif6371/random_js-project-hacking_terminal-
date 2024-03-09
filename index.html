@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: rgb(0, 0, 0);
+      color: rgb(7, 240, 7);
+      font-family: monospace;
+    }
+
+    .blink {
+      animation: blink 1s steps(2, start)infinite;
+    }
+
+    @keyframes blink {
+      to {
+        content-visibility:hidden;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="console"></div>
+
+  <script>
+    var messages = [
+      "Initializing hacking tool...",
+      "Reading your files...",
+      "Reading your files...",
+      "Reading your files...",
+      "Reading your files...",
+      "Reading your files...",
+      "Reading your files...",
+      "Reading your files...",
+      "Reading your files...",
+      "Password files detected...",
+      "Decrypting password files...",
+      "Decrypting password files...",
+      "Decrypting password files...",
+      "Decrypting password files...",
+      "Decrypting password files...",
+      "Decrypting password files...",
+      "Password files decrypted...",
+      "Reading password files...",
+      "Reading password files...",
+      "Reading password files...",
+      "Reading password files...",
+      "Reading password files...",
+      "Reading password files...",
+      "fetching the details from files...",
+      "Passwords detected...",
+      "Decrypting passwords...",
+      "Passwords decrypted...",
+      "Sending passwords to the server...",
+      "Passwords sent...",
+      "All done...",
+      "Hacking complete...",
+      "it is been done from ak",
+      "Passwords stolen...",
+      "Decrypting security protocols…",
+      "Decrypting security protocols…",
+      "Decrypting security protocols…",
+      "Decrypting security protocols…",
+      "Sniffing network traffic…",
+      "Bypassing firewall…",
+      "Scanning network topology…",
+      "Scanning network topology…",
+      "Scanning network topology…",
+      "Scanning network topology…",
+      "Injecting SQL commands…",
+      "Spoofing IP address…",
+      "Cracking password hash…",
+      "Cracking password hash…",
+      "Cracked password…",
+      "Exploiting buffer overflow…",
+      "Downloading confidential data…",
+      "Erasing digital footprints…",
+      "Disconnecting from server…",
+      "Hacking tool closed..."
+    ];
+
+    function printMessage(index) {
+      if (index < messages.length) {
+        var msg = messages[index];
+        var consoleDiv = document.getElementById('console');
+        var msgDiv = document.createElement('div');
+        msgDiv.innerHTML = msg + '<span class="blink">...</span>';
+        consoleDiv.appendChild(msgDiv);
+
+        setTimeout(function () {
+          printMessage(index + 1);
+        }, Math.random() * 6000 + 1000);
+      }
+    }
+
+    printMessage(0);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            color: rgb(25, 222, 11);
+            font-family: monospace;
+            display: flex;
+            /* justify-content: center;
+            align-items: center; */
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        #background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            filter: blur(2px);
+        }
+        #background div {
+            position: absolute;
+            font-size: 30px;
+            animation:fall linear infinite;
+        }
+        @keyframes fall {
+            from { top: -50px; }
+            to { top: 100vh; }
+        }
+    </style>
+</head>
+<body>
+    <div id="background"></div>
+    <div id="console">
+      <h1>Hacking Simulator AK</h1>
+    </div>
+
+    <script>
+        var backgroundDiv = document.getElementById('background');
+
+        function createNumber() {
+            var numberDiv = document.createElement('div');
+            numberDiv.textContent = Math.random() < 0.5 ? 0 : 1;  // Generate a random binary digit
+            numberDiv.style.left = Math.random() * 100 + 'vw';
+            numberDiv.style.animationDuration = Math.random() * 3 + 2 + 's';
+            backgroundDiv.appendChild(numberDiv);
+
+            setTimeout(function() {
+                backgroundDiv.removeChild(numberDiv);
+            }, 8000);
+        }
+
+        setInterval(createNumber, 100);
+    </script>
+
+
+<script>
+  var messages = [
+    "Initializing hacking tool...",
+    "Reading your files...",
+    "Reading your files...",
+    "Reading your files...",
+    "Password files detected...",
+    "Decrypting password files...",
+    "Decrypting password files...",
+    "Decrypting password files...",
+    "Password files decrypted...",
+    "Reading password files...",
+    "Reading password files...",
+    "Reading password files...",
+    "fetching the details from files...",
+    "Passwords detected...",
+    "Decrypting passwords...",
+    "Passwords decrypted...",
+    "Sending passwords to the server...",
+    "Passwords sent...",
+    "All done...",
+    "Hacking complete...",
+    "it is been done from ak",
+    "Passwords stolen...",
+    "Decrypting security protocols…",
+    "Decrypting security protocols…",
+    "Sniffing network traffic…",
+    "Bypassing firewall…",
+    "Scanning network topology…",
+    "Scanning network topology…",
+    "Scanning network topology…",
+    "Scanning network topology…",
+    "Injecting SQL commands…",
+    "Spoofing IP address…",
+    "Cracking password hash…",
+    "Cracking password hash…",
+    "Cracked password…",
+    "Exploiting buffer overflow…",
+    "Downloading confidential data…",
+    "Erasing digital footprints…",
+    "Disconnecting from server…",
+    "Hacking tool closed..."
+  ];
+
+  function printMessage(index) {
+    if (index < messages.length) {
+      var msg = messages[index];
+      var consoleDiv = document.getElementById('console');
+      var msgDiv = document.createElement('div');
+      msgDiv.innerHTML = msg + '<span class="blink">...</span>';
+      consoleDiv.appendChild(msgDiv);
+
+      setTimeout(function () {
+        printMessage(index + 1);
+      }, Math.random() * 6000 + 1000);
+    }
+  }
+
+  printMessage(0);
+</script>
+</body>
+</html>
